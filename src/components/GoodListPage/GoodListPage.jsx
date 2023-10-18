@@ -1,37 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import styles from './GoodListPage.module.css'
 import CertificateItem from '../CertificateItem/CertificateItem'
 
-const GoodListPage = ({ onSelectCertificate }) => {
-  const [certificates, setCertificates] = useState([])
-
-  useEffect(() => {
-    // Здесь происходит вызов метода OSGetGoodList для получения списка сертификатов
-    // и установка полученных данных в state
-    const fetchCertificates = async () => {
-      try {
-        const response = await fetch('API_ENDPOINT/OSGetGoodList')
-        const data = await response.json()
-        setCertificates(data)
-      } catch (error) {
-        console.error('Error fetching certificate list:', error)
-      }
-    }
-
-    fetchCertificates()
-  }, [])
-
+const GoodListPage = ({ certificates }) => {
   return (
-    <div>
-      <h2>Выберите сертификат</h2>
-      <ul>
+    <div className={styles.goodListPage}>
+      <h2 className={styles.title}>Выберите сертификат</h2>
+      <div className={styles.certificateList}>
         {certificates.map((certificate) => (
           <CertificateItem
-            key={certificate.id}
+            key={certificate.ID}
             certificate={certificate}
-            onSelect={onSelectCertificate}
+            // onSelect={onSelectCertificate}
           />
         ))}
-      </ul>
+      </div>
     </div>
   )
 }

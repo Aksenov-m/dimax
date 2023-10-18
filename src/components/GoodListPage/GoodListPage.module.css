@@ -1,0 +1,29 @@
+.goodListPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.certificateList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+  .goodListPage {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+}

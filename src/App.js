@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react'
+import HomePage from './components/HomePage/HomePage'
+import api from "./utils/api";
 import './App.css';
 
 function App() {
+
+
+  const [certificates, setCertificates] = useState([])
+
+  useEffect(() => {
+    api.getGoodList()
+      .then((data) => {
+        setCertificates(data);
+        console.log("Список товаров:", data);
+      })
+      .then(() => {
+        console.log(certificates);
+      })
+      .catch((err) => alert("Ошибка:", err));
+  }, []);
+
   return (
     <>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HomePage
+      certificates={certificates}
+      />
     </div>
     </>
   );

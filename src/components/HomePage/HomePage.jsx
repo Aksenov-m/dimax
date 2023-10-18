@@ -1,20 +1,12 @@
 import React, { useState } from 'react'
-import GoodListPage from './GoodListPage'
+import GoodListPage from '../GoodListPage/GoodListPage'
 
-const HomePage = () => {
-  const [selectedCertificate, setSelectedCertificate] = useState(null)
-
-  const handleSelectCertificate = (certificate) => {
-    setSelectedCertificate(certificate)
-    // Переход на страницу сбора контактов
-    // (можно использовать React Router или другой механизм навигации)
-  }
-
+const HomePage = (props) => {
   return (
-    <div>
+    <section>
       <h1>Добро пожаловать в наш магазин подарочных сертификатов!</h1>
-      <GoodListPage onSelectCertificate={handleSelectCertificate} />
-    </div>
+      <GoodListPage certificates={props.certificates} />
+    </section>
   )
 }
 

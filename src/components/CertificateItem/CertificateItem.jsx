@@ -1,35 +1,33 @@
 import React from 'react'
 import styles from './CertificateItem.module.css'
+import Button from '../Button/Button'
+import reactLogo from '../../logo.svg'
 
 const CertificateItem = ({ certificate, onSelect }) => (
-  <li className={styles.certificateItem}>
-    <h3 className={styles.certificateItem__name}>{certificate.name}</h3>
+  <article className={styles.certificateItem}>
+    <h3 className={styles.certificateItem__name}>{certificate.NAME}</h3>
     <p className={styles.certificateItem__description}>
-      {certificate.description}
+      {certificate.DESCRIPTION ? certificate.DESCRIPTION : 'тут нет описания'}
     </p>
-    <p className={styles.certificateItem__price}>Цена: {certificate.price}</p>
+    <p className={styles.certificateItem__price}>Цена: {certificate.PRICE}</p>
     <p className={styles.certificateItem__summa}>
-      Сумма к оплате: {certificate.summa}
+      Сумма к оплате: {certificate.SUMMA}
     </p>
     <p className={styles.certificateItem__discount}>
-      Скидка: {certificate.discount}
+      Скидка: {`${Math.floor(certificate.DISCOUNT)}%`}
     </p>
-    {certificate.imageUrl && (
-      <div>
-        <img
-          className={styles.certificateItem__image}
-          src={certificate.imageUrl}
-          alt={certificate.name}
-        />
-      </div>
-    )}
-    <button
+    <div>
+      <img
+        className={styles.certificateItem__image}
+        src={certificate.IMAGEURL ? certificate.IMAGEURL : reactLogo}
+        alt={certificate.NAME}
+      />
+    </div>
+    <Button
       className={styles.certificateItem__button}
       onClick={() => onSelect(certificate)}
-    >
-      Оформить
-    </button>
-  </li>
+    ></Button>
+  </article>
 )
 
 export default CertificateItem
