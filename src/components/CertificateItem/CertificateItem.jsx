@@ -24,7 +24,8 @@ const CertificateItem = ({ certificate, onSelect }) => (
       />
     </div>
     <Button
-      className={styles.certificateItem__button}
+      tag="certificateItem__button"
+      text="Оформить"
       onClick={() => onSelect(certificate)}
     ></Button>
   </article>

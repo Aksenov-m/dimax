@@ -1,7 +1,7 @@
 import styles from './Button.module.css'
 
-const Button = () => {
-  return <button className={styles.certificateItem__button}>Оформить</button>
+const Button = ({ tag, text }) => {
+  return <button className={`${styles.button} ${styles[tag]}`}>{text}</button>
 }
 
 export default Button
