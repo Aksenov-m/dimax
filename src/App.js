@@ -9,6 +9,7 @@ import './App.css';
 
 function App() {
   const [certificates, setCertificates] = useState([]);
+  const [nameCertificates, setNameCertificates] = useState('');
 
   useEffect(() => {
     api.getGoodList()
@@ -27,15 +28,19 @@ function App() {
     {
       path: "/",
       element:  <HomePage
+      isName={isName}
       certificates={certificates}/>,
       errorElement: <ErrorPage />,
     },
     {
       path: "form",
-      element: <FormPage />,
+      element: <FormPage nameCertificates={nameCertificates}/>,
     },
   ]);
 
+  function isName(name) {
+    setNameCertificates(name);
+  }
 
   return (
     <>

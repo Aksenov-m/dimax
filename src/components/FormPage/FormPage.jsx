@@ -1,12 +1,15 @@
 import React from 'react'
+import { Form, useLoaderData, redirect, useNavigate } from 'react-router-dom'
 import styles from './FormPage.module.css'
+import Button from '../Button/Button'
 
-const FormComponent = () => {
+const FormComponent = (props) => {
+  const navigate = useNavigate()
   return (
     <div className={styles.mainContent}>
       <form className={styles.form} noValidate>
         <div className={styles.formContainer}>
-          <p className={styles.formInfo}>Сертификат на 50000 руб</p>
+          <p className={styles.formInfo}>{props.nameCertificates}</p>
           <label className={styles.formLabel}>
             <span className={styles.labelText}>ФИО *</span>
             <input
@@ -54,15 +57,19 @@ const FormComponent = () => {
           </a>
         </div>
         <div className={styles.formButtons}>
-          <button className={styles.backButton} type="button">
-            Назад
-          </button>
-          <button
-            className={`${styles.submitButton} ${styles.loadingButton}`}
-            type="submit"
-          >
-            Перейти к оплате
-          </button>
+          <Button
+            handleClick={() => {
+              navigate(-1)
+            }}
+            isType="button"
+            tag="form__button_color_grey"
+            text="Назад"
+          ></Button>
+          <Button
+            isType="submit"
+            tag="form__button_color_blue"
+            text="Перейти к оплате"
+          ></Button>
         </div>
       </form>
     </div>

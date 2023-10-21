@@ -5,7 +5,7 @@ const HomePage = (props) => {
   return (
     <section>
       <h1>Добро пожаловать в наш магазин подарочных сертификатов!</h1>
-      <GoodListPage certificates={props.certificates} />
+      <GoodListPage isName={props.isName} certificates={props.certificates} />
     </section>
   )
 }
