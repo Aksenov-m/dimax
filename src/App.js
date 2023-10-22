@@ -34,7 +34,7 @@ function App() {
     },
     {
       path: "form",
-      element: <FormPage nameCertificates={nameCertificates}/>,
+      element: <FormPage nameCertificates={nameCertificates} errorMessage="Поля: Имя, Телефон, Почта - обязательные"/>,
     },
   ]);
 

@@ -53,6 +53,16 @@
   margin-top: 20px;
 }
 
+.inputError {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ee3465;
+  transition: 0.3s;
+  padding-top: 6px;
+}
+
 /* Медиа-запросы */
 @media screen and (max-width: 320px) {
   .form {

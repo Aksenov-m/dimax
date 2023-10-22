@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Form, useLoaderData, redirect, useNavigate } from 'react-router-dom'
+import useFormWithValidation from '../../hooks/useFormWithValidation'
 import styles from './FormPage.module.css'
 import Button from '../Button/Button'
 
 const FormComponent = (props) => {
+  const { values, handleChange, resetForm, isValid } = useFormWithValidation()
+
   const navigate = useNavigate()
+
+  useEffect(() => {
+    resetForm()
+  }, [resetForm])
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    console.log('сука')
+  }
+
   return (
     <div className={styles.mainContent}>
       <form className={styles.form} noValidate>
@@ -13,6 +26,9 @@ const FormComponent = (props) => {
           <label className={styles.formLabel}>
             <span className={styles.labelText}>ФИО *</span>
             <input
+              value={values.name}
+              onChange={handleChange}
+              required
               placeholder="Введите..."
               type="text"
               name="name"
@@ -22,10 +38,13 @@ const FormComponent = (props) => {
           <label className={styles.formLabel}>
             <span className={styles.labelText}>Телефон *</span>
             <input
+              value={values.tel}
+              onChange={handleChange}
+              required
               placeholder="+7 (999) 999-99-99"
               type="tel"
+              name="tel"
               className={styles.inputField}
-              value="+7 (___) ___-__-__"
               inputMode="numeric"
             />
           </label>
@@ -42,12 +61,20 @@ const FormComponent = (props) => {
           <label className={styles.formLabel}>
             <span className={styles.labelText}>Почта *</span>
             <input
+              value={values.email}
+              onChange={handleChange}
+              required
               placeholder="Введите..."
               type="email"
               name="email"
               className={styles.inputField}
             />
           </label>
+          <span className={styles.inputError}>
+            {!isValid && Object.keys(values).length > 0
+              ? props.errorMessage
+              : ''}
+          </span>
           <a
             href="https://sycret.ru/"
             className={styles.rulesLink}
@@ -66,6 +93,8 @@ const FormComponent = (props) => {
             text="Назад"
           ></Button>
           <Button
+            isDisabled={!isValid}
+            handleClick={handleSubmit}
             isType="submit"
             tag="form__button_color_blue"
             text="Перейти к оплате"

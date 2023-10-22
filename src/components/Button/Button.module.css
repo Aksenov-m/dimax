@@ -27,3 +27,7 @@
 .form__button_color_grey {
   background-color: #ccc;
 }
+
+.button:disabled {
+  opacity: 0.5;
+}
