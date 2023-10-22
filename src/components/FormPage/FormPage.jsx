@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Form, useLoaderData, redirect, useNavigate } from 'react-router-dom'
 import useFormWithValidation from '../../hooks/useFormWithValidation'
 import styles from './FormPage.module.css'
 import Button from '../Button/Button'
 
-const FormComponent = (props) => {
+const FormComponent = ({ certificate, errorMessage }) => {
   const { values, handleChange, resetForm, isValid } = useFormWithValidation()
+  const nameRef = useRef(null)
+  const telRef = useRef(null)
+  const emailRef = useRef(null)
+  const messageRef = useRef(null)
 
   const navigate = useNavigate()
 
@@ -15,17 +19,18 @@ const FormComponent = (props) => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log('сука')
+    console.log('с')
   }
 
   return (
     <div className={styles.mainContent}>
       <form className={styles.form} noValidate>
         <div className={styles.formContainer}>
-          <p className={styles.formInfo}>{props.nameCertificates}</p>
+          <p className={styles.formInfo}>{certificate.NAME}</p>
           <label className={styles.formLabel}>
             <span className={styles.labelText}>ФИО *</span>
             <input
+              ref={nameRef}
               value={values.name}
               onChange={handleChange}
               required
@@ -38,6 +43,7 @@ const FormComponent = (props) => {
           <label className={styles.formLabel}>
             <span className={styles.labelText}>Телефон *</span>
             <input
+              ref={telRef}
               value={values.tel}
               onChange={handleChange}
               required
@@ -52,6 +58,7 @@ const FormComponent = (props) => {
             <span className={styles.labelText}>Сообщение</span>
             <textarea
               rows="3"
+              ref={messageRef}
               placeholder="Введите..."
               type="text"
               name="message"
@@ -61,6 +68,7 @@ const FormComponent = (props) => {
           <label className={styles.formLabel}>
             <span className={styles.labelText}>Почта *</span>
             <input
+              ref={emailRef}
               value={values.email}
               onChange={handleChange}
               required
@@ -71,9 +79,7 @@ const FormComponent = (props) => {
             />
           </label>
           <span className={styles.inputError}>
-            {!isValid && Object.keys(values).length > 0
-              ? props.errorMessage
-              : ''}
+            {!isValid && Object.keys(values).length > 0 ? errorMessage : ''}
           </span>
           <a
             href="https://sycret.ru/"
