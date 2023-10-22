@@ -32,8 +32,48 @@ export class Api {
       return Promise.reject(error);
     }
   }
-}
 
+  async ossale(data) {
+    const method = "OSSale";
+    const apiKey = this._headers.authorization;
+
+    const url = `${this._url}/OSSale`;
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          ...this._headers,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ApiKey: apiKey,
+          MethodName: method,
+          Id: data.ID,
+          TableName: data.TABLENAME,
+          PrimaryKey: data.PRIMARYKEY,
+          Price: data.PRICE, 
+          Summa: data.SUMMA,
+          ClientName: data.NAME,
+          Phone: data.PHONE.trim().replace(/[^\d]/g, '').substring(1),
+          Email: data.EMAIL,
+          PaymentTypeId: 2,
+          UseDelivery: 0,
+          DeliveryAddress: "",
+          IsGift: 0,
+          MsgText: "Спасибо за покупку!",
+          PName: "",
+          PPhone: "",
+        }),
+      });
+
+      const result = await response.json();
+      return onError(result);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  }
+}
 
 const api = new Api({
   baseUrl: "https://sycret.ru/service/api/api",

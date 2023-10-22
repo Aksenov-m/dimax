@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
   const [certificates, setCertificates] = useState([]);
-  const [nameCertificates, setNameCertificates] = useState('');
+  const [certificate, setCertificate] = useState('');
 
   useEffect(() => {
     api.getGoodList()
@@ -28,18 +28,18 @@ function App() {
     {
       path: "/",
       element:  <HomePage
-      isName={isName}
+      isCertificate={isCertificate}
       certificates={certificates}/>,
       errorElement: <ErrorPage />,
     },
     {
       path: "form",
-      element: <FormPage nameCertificates={nameCertificates} errorMessage="Поля: Имя, Телефон, Почта - обязательные"/>,
+      element: <FormPage certificate={certificate} errorMessage="Поля: Имя, Телефон, Почта - обязательные"/>,
     },
   ]);
 
-  function isName(name) {
-    setNameCertificates(name);
+  function isCertificate(certificate) {
+    setCertificate(certificate);
   }
 
   return (

@@ -4,9 +4,9 @@ import styles from './CertificateItem.module.css'
 import Button from '../Button/Button'
 import reactLogo from '../../logo.svg'
 
-function CertificateItem({ certificate, isName }) {
+function CertificateItem({ certificate, isCertificate }) {
   function processPayment() {
-    isName(certificate.NAME)
+    isCertificate(certificate)
   }
 
   return (
