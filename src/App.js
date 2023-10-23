@@ -9,7 +9,8 @@ import './App.css';
 
 function App() {
   const [certificates, setCertificates] = useState([]);
-  const [certificate, setCertificate] = useState('');
+  const [certificate, setCertificate] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     api.getGoodList()
@@ -23,6 +24,19 @@ function App() {
       .catch((err) => alert("Ошибка:", err));
   }, []);
 
+  // function handlePaymentSubmit(data) {
+  //   const information = certificate
+  //   api.ossale(information)
+  //     // .then((newCard) => {
+  //     //   setCards([newCard, ...cards]);
+  //     // })
+  //     .catch((err) => alert(err))
+  //     // .finally(() => {
+  //     //   setIsLoading(false);
+  //     // });
+  // }
+
+
 
   const router = createBrowserRouter([
     {
@@ -34,7 +48,7 @@ function App() {
     },
     {
       path: "form",
-      element: <FormPage certificate={certificate} errorMessage="Поля: Имя, Телефон, Почта - обязательные"/>,
+      element: <FormPage  certificate={certificate} errorMessage="Поля: Имя, Телефон, Почта - обязательные"/>,
     },
   ]);
 
