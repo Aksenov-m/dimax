@@ -15,6 +15,7 @@
 
 ```sh
 npm run start
+Откройте http://localhost:3000 , чтобы просмотреть его в браузере.
 ```
 
 ### Сборка приложения
@@ -22,3 +23,4 @@ npm run start
 ```sh
 npm run build
 ```
+* [Ссылка на сайт](https://aksenov-m.github.io/dimax/)
