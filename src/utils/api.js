@@ -42,6 +42,7 @@ export class Api {
     try {
       const response = await fetch(url, {
         method: "POST",
+        mode: "no-cors",
         headers: {
           ...this._headers,
           "Content-Type": "application/json",
@@ -49,14 +50,14 @@ export class Api {
         body: JSON.stringify({
           ApiKey: apiKey,
           MethodName: method,
-          Id: data.ID,
+          Id: Number(data.ID),
           TableName: data.TABLENAME,
           PrimaryKey: data.PRIMARYKEY,
-          Price: data.PRICE, 
-          Summa: data.SUMMA,
-          ClientName: data.NAME,
+          Price: Number(data.PRICE.replace(',', '.')),
+          Summa: Number(data.SUMMA.replace(',', '.')),
+          ClientName: data.NAME.trim(),
           Phone: data.PHONE.trim().replace(/[^\d]/g, '').substring(1),
-          Email: data.EMAIL,
+          Email: data.EMAIL.trim(),
           PaymentTypeId: 2,
           UseDelivery: 0,
           DeliveryAddress: "",

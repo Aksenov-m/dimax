@@ -4,7 +4,7 @@ import useFormWithValidation from '../../hooks/useFormWithValidation'
 import styles from './FormPage.module.css'
 import Button from '../Button/Button'
 
-const FormComponent = ({ certificate, errorMessage }) => {
+const FormComponent = ({ certificate, errorMessage, handlePaymentSubmit }) => {
   const {
     values,
     handleChange,
@@ -19,15 +19,19 @@ const FormComponent = ({ certificate, errorMessage }) => {
     resetForm()
   }, [resetForm])
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    console.log(values.name, values.tel)
-    resetForm()
-  }
+  // function handleSubmit(e) {
+  //   e.preventDefault()
+  //   const data = {
+  //     NAME: values.name,
+  //     PHONE: values.tel,
+  //     EMAIL: values.email,
+  //   }
+  //   handlePaymentSubmit(data)
+  // }
 
   return (
     <div className={styles.mainContent}>
-      <form className={styles.form}>
+      <Form className={styles.form} method="post">
         <div className={styles.formContainer}>
           <p className={styles.formInfo}>{certificate.NAME}</p>
           <label className={styles.formLabel}>
@@ -110,13 +114,13 @@ const FormComponent = ({ certificate, errorMessage }) => {
           ></Button>
           <Button
             isDisabled={!isValid}
-            handleClick={handleSubmit}
+            // handleClick={handleSubmit}
             isType="submit"
             tag="form__button_color_blue"
             text="Перейти к оплате"
           ></Button>
         </div>
-      </form>
+      </Form>
     </div>
   )
 }
