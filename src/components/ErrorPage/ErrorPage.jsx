@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 import styles from './ErrorPage.module.css'
 
 const ErrorPage = () => {
-  // const history = useHistory()
-
   return (
     <div className={styles.errorPage}>
       <h1 className={styles.title}>404 - Страница не найдена</h1>

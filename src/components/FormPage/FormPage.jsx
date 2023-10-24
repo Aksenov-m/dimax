@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Form, useLoaderData, redirect, useNavigate } from 'react-router-dom'
+import { Form, useNavigate } from 'react-router-dom'
 import useFormWithValidation from '../../hooks/useFormWithValidation'
 import styles from './FormPage.module.css'
 import Button from '../Button/Button'
@@ -18,16 +18,6 @@ const FormComponent = ({ certificate, errorMessage, handlePaymentSubmit }) => {
   useEffect(() => {
     resetForm()
   }, [resetForm])
-
-  // function handleSubmit(e) {
-  //   e.preventDefault()
-  //   const data = {
-  //     NAME: values.name,
-  //     PHONE: values.tel,
-  //     EMAIL: values.email,
-  //   }
-  //   handlePaymentSubmit(data)
-  // }
 
   return (
     <div className={styles.mainContent}>
