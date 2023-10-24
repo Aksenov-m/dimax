@@ -1,0 +1,37 @@
+.certificateItem {
+  width: 240px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.certificateItem__name {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.certificateItem__description {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.certificateItem__price {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.certificateItem__summa {
+  color: green;
+  margin-bottom: 5px;
+}
+
+.certificateItem__discount {
+  color: red;
+  margin-bottom: 5px;
+}
+
+.certificateItem__image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}

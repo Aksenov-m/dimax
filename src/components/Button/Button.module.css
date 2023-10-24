@@ -1,0 +1,33 @@
+.button {
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.certificateItem__button {
+  background-color: #4caf50;
+}
+
+.certificateItem__button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid #4caf50;
+}
+
+.form__button_color_blue {
+  background-color: #007bff;
+}
+
+.form__button_color_grey {
+  background-color: #ccc;
+}
+
+.button:disabled {
+  opacity: 0.5;
+}
