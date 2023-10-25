@@ -11,7 +11,7 @@ const ErrorPage = () => {
         Извините, страница, которую вы ищете возможно в режиме разработки.
       </p>
       <p className={styles.link}>
-        <Link to="/">На главную</Link>
+        <Link to="dimax">На главную</Link>
       </p>
     </div>
   )

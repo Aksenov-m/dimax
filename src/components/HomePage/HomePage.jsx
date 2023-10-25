@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import GoodListPage from '../GoodListPage/GoodListPage'
 
 const HomePage = (props) => {
@@ -8,6 +8,7 @@ const HomePage = (props) => {
       <GoodListPage
         isCertificate={props.isCertificate}
         certificates={props.certificates}
+        isLoading={props.isLoading}
       />
     </section>
   )
