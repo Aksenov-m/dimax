@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/dimax/static/css/main.f0b4c523.css",
-    "main.js": "/dimax/static/js/main.cf242f71.js",
+    "main.css": "/dimax/static/css/main.883193ac.css",
+    "main.js": "/dimax/static/js/main.c6ed52d3.js",
     "static/media/logo.svg": "/dimax/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/dimax/index.html",
-    "main.f0b4c523.css.map": "/dimax/static/css/main.f0b4c523.css.map",
-    "main.cf242f71.js.map": "/dimax/static/js/main.cf242f71.js.map"
+    "main.883193ac.css.map": "/dimax/static/css/main.883193ac.css.map",
+    "main.c6ed52d3.js.map": "/dimax/static/js/main.c6ed52d3.js.map"
   },
   "entrypoints": [
-    "static/css/main.f0b4c523.css",
-    "static/js/main.cf242f71.js"
+    "static/css/main.883193ac.css",
+    "static/js/main.c6ed52d3.js"
   ]
 }
