@@ -3,22 +3,26 @@ import { createBrowserRouter, RouterProvider, redirect } from "react-router-dom"
 import HomePage from "./components/HomePage/HomePage";
 import FormPage from "./components/FormPage/FormPage";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
-import Onlinesale from "./components/Onlinesale/Onlinesale";
+import OnlinesalePage from "./components/OnlinesalePage/OnlinesalePage";
 import api from "./utils/api";
 import "./App.css";
 
 function App() {
   const [certificates, setCertificates] = useState([]);
   const [certificate, setCertificate] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     api
       .getGoodList()
       .then((data) => {
         setCertificates(data);
       })
-      .catch((err) => alert("Ошибка:", err));
+      .catch((err) => alert("Ошибка:", err))
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
 
   const saveCertificateData = async (data) => {
@@ -29,7 +33,7 @@ function App() {
       })
       .catch((err) => {
         console.info("Ошибка при обработке платежа:", err);
-      })
+      });
   };
 
   const saveCertificateAction = async ({ request }) => {
@@ -53,7 +57,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "dimax",
-      element: <HomePage isCertificate={isCertificate} certificates={certificates} />,
+      element: <HomePage isLoading={isLoading} isCertificate={isCertificate} certificates={certificates} />,
       errorElement: <ErrorPage />,
     },
     {
@@ -63,7 +67,7 @@ function App() {
     },
     {
       path: "dimax/form/onlinesale",
-      element: <Onlinesale />,
+      element: <OnlinesalePage />,
     },
   ]);
 

@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// import { useHistory } from 'react-router-dom'
-import styles from './Onlinesale.module.css'
+import Preloader from '../Preloader/Preloader'
+import styles from './OnlinesalePage.module.css'
 
-const Onlinesale = () => {
+const OnlinesalePage = () => {
   return (
     <div className={styles.onlinesale}>
+      <Preloader isLoading={true} />
       <h1 className={styles.title}>Оплата</h1>
       <p className={styles.link}>
         <Link to="/dimax">На главную</Link>
@@ -14,4 +15,4 @@ const Onlinesale = () => {
   )
 }
 
-export default Onlinesale
+export default OnlinesalePage
