@@ -52,17 +52,17 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "dimax",
       element: <HomePage isCertificate={isCertificate} certificates={certificates} />,
       errorElement: <ErrorPage />,
     },
     {
-      path: "form",
+      path: "dimax/form",
       action: saveCertificateAction,
       element: <FormPage certificate={certificate} errorMessage='Поля: Имя, Телефон, Почта - обязательные' />,
     },
     {
-      path: "form/onlinesale",
+      path: "dimax/form/onlinesale",
       element: <Onlinesale />,
     },
   ]);

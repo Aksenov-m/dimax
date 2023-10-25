@@ -8,7 +8,7 @@ const Onlinesale = () => {
     <div className={styles.onlinesale}>
       <h1 className={styles.title}>Оплата</h1>
       <p className={styles.link}>
-        <Link to="/">На главную</Link>
+        <Link to="/dimax">На главную</Link>
       </p>
     </div>
   )
